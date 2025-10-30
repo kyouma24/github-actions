@@ -1,8 +1,5 @@
 name: second-project
-on: 
-  push:
-    paths:
-        - 'second-project/**'
+on: push
 jobs:
     first-project-job:
         runs-on: ubuntu-latest
@@ -15,5 +12,7 @@ jobs:
                 node-version: 24
             - name: Install Dependancies
               run: npm ci
+              working-directory: ./starting-project-02
             - name: Run Tests
               run: npm test
+              working-directory: ./starting-project-02
