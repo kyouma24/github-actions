@@ -1,7 +1,7 @@
 name: second-project
 on: push
 jobs:
-    first-project-job:
+    testing:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository
@@ -16,3 +16,20 @@ jobs:
             - name: Run Tests
               run: npm test
               working-directory: ./starting-project-02
+    deployment:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+            - name: Set up Node.js
+              uses: actions/setup-node@v6
+              with: 
+                node-version: 24
+            - name: Install Dependancies
+              run: npm ci
+              working-directory: ./starting-project-02
+            - name: Build
+              run: npm run build
+              working-directory: ./starting-project-02
+            - name: Deploy
+              run: echo "Deployed Application"
