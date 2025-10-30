@@ -17,6 +17,7 @@ jobs:
               run: npm test
               working-directory: ./starting-project-02
     deployment:
+        needs: testing
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository
