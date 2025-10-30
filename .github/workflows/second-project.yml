@@ -15,5 +15,7 @@ jobs:
                 node-version: 24
             - name: Install Dependancies
               run: npm ci
+              working-directory: ./starting-project-02
             - name: Run Tests
               run: npm test
+              working-directory: ./starting-project-02
